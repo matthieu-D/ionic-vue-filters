@@ -18,6 +18,9 @@
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/@ionic/core@0.0.2-29/dist/ionic.js"></script>
+
   <!-- un-comment this code to enable service worker
   <script>
     if ('serviceWorker' in navigator) {
@@ -30,10 +33,36 @@
   <link href="build/main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <!-- Ionic's root component and where the app will load -->
-  <ion-app></ion-app>
+
+  <div id="app">
+    <button @click="getPosition()">
+       Get Position
+    </button>
+
+    <ion-card>
+
+      <ion-card-content>
+
+        <div v-if="geolocation.latitude">
+          You are located at: {{geolocation.latitude}}, {{geolocation.longitude}}
+        </div>
+
+        <div v-else-if="loadingPosition">
+          Acquiring your position
+        </div>
+
+        <div v-else>
+          Tap the button
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
