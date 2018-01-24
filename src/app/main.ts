@@ -1,25 +1,13 @@
-declare var Vue: any;
+import Vue from 'vue'
+import ComponentWithMethods from './component-with-methods/component-with-methods.vue'
+import SimpleTsComponent from './simple-ts-component'
+import Rectangle from './rectangle/rectangle.vue'
 
-import * as GeolocationService from '@ionic-native/geolocation';
-
-const geolocation = new GeolocationService.Geolocation();
-
-Vue.config.ignoredElements = ['ion-card', 'ion-card-content'];
+Vue.component('global-component', {
+  template: '<div> Hi I am a global component </div>'
+});
 
 var app = new Vue({
   el: '#app',
-  data: {
-    loadingPosition: false,
-    geolocation: {}
-  },
-  methods: {
-    getPosition: function() {
-      this.loadingPosition = true;
-
-      geolocation.getCurrentPosition().then(({ coords })=> {
-        this.loadingPosition = false;
-        this.geolocation = coords;
-      })
-    }
-  }
+  components: { SimpleTsComponent, Rectangle, ComponentWithMethods }
 })
