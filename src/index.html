@@ -14,6 +14,7 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script src="https://unpkg.com/@ionic/core@0.0.2-48/dist/ionic.js"></script>
 
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
@@ -34,10 +35,13 @@
 <body>
 
   <div id="app">
-    <rectangle></rectangle>
-    <component-with-methods></component-with-methods>
-    <simple-ts-component></simple-ts-component>
-    <global-component></global-component>
+    <!-- <button ion-button @click="useVanillaJsService">
+      Use Vanilla JavaScript Service
+    </button> -->
+    <!-- <first-component></first-component>
+    <second-component></second-component> -->
+    <component-one></component-one> 
+    <component-two></component-two>
   </div>
 
   <!-- The polyfills js is generated during the build process -->
