@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic App</title>
@@ -35,8 +36,23 @@
 <body>
 
   <div id="app">
-    <vue-parent-node></vue-parent-node>
-    <ts-parent-node></ts-parent-node>
+    <input type="text" v-model.number="originalValue" />
+
+    <div>
+      Vanilla sum: {{ originalValue | vanillaSum(1, 1) }}
+    </div>
+
+    <div>
+      TypeScript sum: {{ originalValue | tsSum(1, 1) }}
+    </div>
+
+    <div>
+      Computed sum: {{ computedSum }}
+    </div>
+
+    <div>
+      Programmatic sum: {{ useSumFilter() }}
+    </div>
   </div>
 
   <!-- The polyfills js is generated during the build process -->
@@ -50,4 +66,5 @@
   <script src="build/main.js"></script>
 
 </body>
+
 </html>
